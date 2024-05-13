@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div{
+           display: flex;
+        }
+    </style>
+</head>
+<body>
+  <h2>Calculadora basica</h2>
+  <div>
+    <input id="argumento1">
+    <select id="operador">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="&">&</option>
+        <option value="|">|</option>
+    </select>
+    <input id="argumento2">
+    <button onclick="operar()">=</button>
+    <p id="salida"></p>
+  </div>
+</body>
+<script src="problema2.js"></script>
+</html>
