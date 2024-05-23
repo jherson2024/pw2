@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <div>
-        <h1>Lista de peliculas</h1>
-    </div>
+    <button onclick="lista()">Lista de peliculas</button>
+    <div id="lista"></div>
+    <script>
+        function lista(){
+            div=document.getElementById("lista");
+            fetch("/movies")
+            .then(response=>{
+                return response.json();
+            }
+        }
+    </script>
 </body>
 </html>
