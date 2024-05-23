@@ -21,4 +21,8 @@ fila8=piezaColocada(black_rock,square).join(piezaColocada(black_knight,black_squ
 fila7=piezaColocada(black_pawn,black_square).join(piezaColocada(black_pawn,square)).horizontalRepeat(4)
 fila6=square.join(black_square).horizontalRepeat(4)
 fila5=fila6.verticalMirror()
-draw(fila8.under(fila7).under(fila6).under(fila5))
+fila4=fila6
+fila3=fila5
+fila2=fila7.negative()
+fila1=fila8.negative()
+draw(fila8.under(fila7).under(fila6).under(fila5).under(fila4).under(fila3).under(fila2).under(fila1))
