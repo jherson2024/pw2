@@ -16,7 +16,7 @@
             .then(data=>{
                 data.forEach(movie=>{
                     const p=document.createElement("p");
-                    p.textContent=movie.movieID+movie.Title+movie.Year+movie.Score+movie.Votes;
+                    p.textContent=movie.MovieID+movie.Title+movie.Year+movie.Score+movie.Votes;
                     div.appendChild(p);
                 });
             });
