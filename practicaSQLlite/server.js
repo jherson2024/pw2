@@ -8,7 +8,7 @@ const db=new sqlite3.Database("imdb.db");
 app.use(express.static(__dirname));
 
 app.get("/movies",(req,res)=>{
-    db.all("select*from movies",(err,rows)=>{
+    db.all("select*from movie",(err,rows)=>{
         res.json(rows);
     });
 });
