@@ -16,7 +16,7 @@
             .then(data=>{
                 data.forEach(pelicula=>{
                     const p=document.createElement("p");
-                    p.textContent=pelicula;
+                    p.textContent=pelicula.Title;
                     div.appendChild(p);
                 });
             });
