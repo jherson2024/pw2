@@ -14,9 +14,9 @@
                 return response.json();
             })
             .then(data=>{
-                data.forEach(pelicula=>{
+                data.forEach(movie=>{
                     const p=document.createElement("p");
-                    p.textContent=pelicula.Title;
+                    p.textContent=movie.movieID+movie.Title+movie.Year+movie.Score+movie.Votes;
                     div.appendChild(p);
                 });
             });
