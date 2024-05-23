@@ -5,19 +5,33 @@
 </head>
 <body>
     <button onclick="lista()">Lista de peliculas</button>
-    <div id="lista"></div>
+    <tabla id="tabla"></tabla>
     <script>
         function lista(){
-            div=document.getElementById("lista");
+            const tabla=document.getElementById("tabla");
             fetch("/movies")
             .then(response=>{
                 return response.json();
             })
             .then(data=>{
                 data.forEach(movie=>{
-                    const p=document.createElement("p");
-                    p.textContent=movie.MovieID+movie.Title+movie.Year+movie.Score+movie.Votes;
-                    div.appendChild(p);
+                    const tr=document.createElement("tr");
+                    const id=document.createElement("td");
+                    id.textContent=movie.MovieID;
+                    tr.appendChild(id);
+                    const title=document.createElement("td");
+                    title.textContent=movie.Title;
+                    tr.appendChild(title);
+                    const year=document.createElement("td");
+                    year.textContent=movie.Year;
+                    tr.appendChild(year);
+                    const score=document.createElement("td");
+                    score.textContent=movie.Score;
+                    tr.appendChild(score);
+                    const votes=document.createElement("td");
+                    votes.textContent=movie.Votes;
+                    tr.appendChild(votes);
+                    tabla.appendChild(tr);
                 });
             });
         }
