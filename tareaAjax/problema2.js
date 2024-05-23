@@ -3,19 +3,15 @@ fetch("data/data.json")
     .then(data => {
         var regionData = data;
         var grafica = null;
-
         window.graficar = function() {
-
             var fechas = [];
             var datasets = [];
-
             regionData.forEach(objeto => {
                 objeto.confirmed.forEach(data => {
                     if (!fechas.includes(data.date)) {
                         fechas.push(data.date);
                     }
                 });
-
                 var dataSet = {
                     label: objeto.region,
                     data: [],
@@ -23,18 +19,15 @@ fetch("data/data.json")
                     borderWidth: 1,
                     fill: false
                 };
-
                 fechas.forEach(date => {
                     var numero =objeto.confirmed.find(data => data.date === date);
                     dataSet.data.push(numero ? parseInt(numero.value) : null);
                 });
-
                 datasets.push(dataSet);
             });
-
             var ctx = document.getElementById("grafica").getContext('2d');
             if (grafica) {
-                grafica.destroy(); // Destroy previous chart instance
+                grafica.destroy(); 
             }
             grafica = new Chart(ctx, {
                 type: "line",

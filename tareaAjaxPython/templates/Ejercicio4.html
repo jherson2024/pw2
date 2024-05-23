@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Casos Confirmados en Arequipa</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Casos Confirmados en Arequipa</h1>
+        <div class="casos">
+            <p>En Arequipa, el número de casos confirmados de COVID-19 es:</p>
+            
+        </div>
+    </div>
+    <div>
+        <label for="region">Región:</label>
+        <input type="text" id="region">
+        <button onclick="graficar()">Graficar</button>
+    </div>
+    <canvas id="grafica"></canvas>
+<script>
+    function graficar() {
+    var region = document.getElementById("region").value;
+
+    fetch('/graficar2', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            region: region
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        var ctx = document.getElementById('grafica').getContext('2d');
+        new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                labels: data.labels,
+                datasets: data.datasets
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => console.error('Error:', error));
+}
+</script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+#chessPictures.py
 from pieces import *
 from picture import *
 
