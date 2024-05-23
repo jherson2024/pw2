@@ -12,6 +12,11 @@
             fetch("/movies")
             .then(response=>{
                 return response.json();
+            })
+            .then(data=>{
+                data.forEach(pelicula=>{
+                    const p=document.createElement("p");
+                });
             }
         }
     </script>
