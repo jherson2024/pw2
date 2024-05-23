@@ -19,4 +19,6 @@ black_square=square.negative()
 #octava fila
 fila8=piezaColocada(black_rock,square).join(piezaColocada(black_knight,black_square)).join(piezaColocada(black_bishop,square)).join(piezaColocada(black_queen,black_square)).join(piezaColocada(black_king,square)).join(piezaColocada(black_bishop,black_square)).join(piezaColocada(black_knight,square)).join(piezaColocada(black_rock,black_square))
 fila7=piezaColocada(black_pawn,black_square).join(piezaColocada(black_pawn,square)).horizontalRepeat(4)
-draw(fila7)
+fila6=square.join(black_square).horizontalRepeat(4)
+fila5=fila6.verticalMirror()
+draw(fila8.under(fila7).under(fila6).under(fila5))
