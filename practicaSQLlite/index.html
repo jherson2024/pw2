@@ -2,10 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <style>
+        td{
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
     <button onclick="lista()">Lista de peliculas</button>
-    <tabla id="tabla"></tabla>
+    <tabla id="tabla""></tabla>
     <script>
         function lista(){
             const tabla=document.getElementById("tabla");
@@ -14,6 +19,7 @@
                 return response.json();
             })
             .then(data=>{
+                const tbody=document.createElement("tbody");
                 data.forEach(movie=>{
                     const tr=document.createElement("tr");
                     const id=document.createElement("td");
@@ -23,16 +29,17 @@
                     title.textContent=movie.Title;
                     tr.appendChild(title);
                     const year=document.createElement("td");
-                    year.textContent=movie.Year;
+                    year.textContent=movie.Year+"  ";
                     tr.appendChild(year);
                     const score=document.createElement("td");
-                    score.textContent=movie.Score;
+                    score.textContent=movie.Score+"  ";
                     tr.appendChild(score);
                     const votes=document.createElement("td");
                     votes.textContent=movie.Votes;
                     tr.appendChild(votes);
-                    tabla.appendChild(tr);
+                    tbody.appendChild(tr);
                 });
+                tabla.appendChild(tbody);
             });
         }
     </script>
