@@ -1,6 +1,6 @@
 from .models import Alumno, Curso, Nota
 from .forms import AlumnoForm, CursoForm, NotaForm
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 # Create your views here.
 def pagina(request):
@@ -24,3 +24,9 @@ def pagina(request):
             if nota_form.is_valid():
                 nota_form.save()
                 return redirect("pagina_principal")
+    
+    return render(request, "registro_notas/index.html", {
+        "alumno_form":alumno_form,
+        "curso_form":curso_form,
+        "nota_form":nota_form,
+    })
