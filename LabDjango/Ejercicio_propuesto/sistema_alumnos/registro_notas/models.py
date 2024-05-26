@@ -15,7 +15,7 @@ class Curso(models.Model):
     def __str__(self):
         return self.nombre
     
-class Notas(models.Model):
+class Nota(models.Model):
     alumno=models.ForeignKey(Alumno, on_delete=models.CASCADE)
     curso=models.ForeignKey(Curso, on_delete=models.CASCADE)
     nota=models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(20)])
