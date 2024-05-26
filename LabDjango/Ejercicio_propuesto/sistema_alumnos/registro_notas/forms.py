@@ -17,3 +17,13 @@ class NotaForm(forms.ModelForm):
     class Meta:
         model=Nota
         fields=["alumno_nombre","curso_nombre","nota"]
+
+    def save(self,commit=True):
+        nota_instance=super(NotaForm,self).save(commit=False)
+        alumno_nombre=self.cleaned_data["alumno_nombre"]
+        curso_nombre=self.cleaned_data["curso_nombre"]
+        nota_instance.alumno=Alumno.objects.get(nombre=alumno_nombre)
+        nota_instance.curso=Curso.objects.get(nombre=curso_nombre)
+        if commit:
+            nota_instance.save()
+        return nota_instance
