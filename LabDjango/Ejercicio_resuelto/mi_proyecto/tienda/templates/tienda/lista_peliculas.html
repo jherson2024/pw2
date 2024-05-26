@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        td{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="lista()">Lista de peliculas</button>
+    <table id="tabla"">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Año</th>
+                <th>Puntuación</th>
+                <th>Votos</th>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        function lista(){
+            console.log("Se ha hecho clic en el botón Lista de películas");
+            const tabla=document.getElementById("tabla");
+            fetch("/movies")
+            .then(response=>{
+                return response.json();
+            })
+            .then(data=>{
+                console.log("Datos recibidos:", data);
+                tabla.innerHTML = "";
+                const tbody=document.createElement("tbody");
+                data.forEach(movie=>{
+                    const tr=document.createElement("tr");
+                    const id=document.createElement("td");
+                    id.textContent=movie.MovieID;
+                    tr.appendChild(id);
+                    const title=document.createElement("td");
+                    title.textContent=movie.Title;
+                    tr.appendChild(title);
+                    const year=document.createElement("td");
+                    year.textContent=movie.Year+"  ";
+                    tr.appendChild(year);
+                    const score=document.createElement("td");
+                    score.textContent=movie.Score+"  ";
+                    tr.appendChild(score);
+                    const votes=document.createElement("td");
+                    votes.textContent=movie.Votes;
+                    tr.appendChild(votes);
+                    tbody.appendChild(tr);
+                });
+                console.log("Tabla construida:", tabla.innerHTML);
+                tabla.appendChild(tbody);
+            });
+        }
+    </script>
+</body>
+</html>
