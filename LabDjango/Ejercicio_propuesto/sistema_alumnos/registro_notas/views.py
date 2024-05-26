@@ -8,3 +8,6 @@ def pagina(request):
     nota_form=NotaForm()
 
     if request.method=="POST":
+        if "alumno_submit" in request.POST:
+        if "curso_submit" in request.POST:
+        if "nota_submit" in request.POST:
