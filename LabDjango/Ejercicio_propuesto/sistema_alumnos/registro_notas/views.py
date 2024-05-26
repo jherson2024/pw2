@@ -6,3 +6,5 @@ def pagina(request):
     alumno_form=AlumnoForm()
     curso_form=CursoForm()
     nota_form=NotaForm()
+
+    if request.method=="POST":
