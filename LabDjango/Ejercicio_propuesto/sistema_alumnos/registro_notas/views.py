@@ -25,7 +25,7 @@ def pagina_principal(request):
                 try:
                     instancia=nota_form.save(commit=False)
                     alumno_nombre=nota_form.cleaned_data["alumno_nombre"]
-                    curso_nombre=nota_form.changed_data["curso_nombre"]
+                    curso_nombre=nota_form.cleaned_data["curso_nombre"]
                     instancia.alumno=Alumno.objects.get(nombre=alumno_nombre)
                     instancia.curso=Curso.objects.get(nombre=curso_nombre)
                     instancia.save()
