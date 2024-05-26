@@ -9,5 +9,8 @@ def pagina(request):
 
     if request.method=="POST":
         if "alumno_submit" in request.POST:
+            alumno_form=AlumnoForm(request.POST)
         if "curso_submit" in request.POST:
+            curso_form=AlumnoForm(request.POST)
         if "nota_submit" in request.POST:
+            nota_form=AlumnoForm(request.POST)
