@@ -14,12 +14,12 @@ def pagina_principal(request):
             if alumno_form.is_valid():
                 alumno_form.save()
                 return redirect("pagina_principal")
-        if "curso_submit" in request.POST:
+        elif "curso_submit" in request.POST:
             curso_form=CursoForm(request.POST)
             if curso_form.is_valid():
                 curso_form.save()
                 return redirect("pagina_principal")
-        if "nota_submit" in request.POST:
+        elif "nota_submit" in request.POST:
             nota_form=NotaForm(request.POST)
             if nota_form.is_valid():
                 try:
