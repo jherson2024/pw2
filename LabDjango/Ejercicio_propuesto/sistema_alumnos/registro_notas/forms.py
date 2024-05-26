@@ -10,3 +10,10 @@ class CursoForm(forms.ModelForm):
     class Meta:
         model=Curso
         fields=["nombre"]
+
+class NotaForm(forms.ModelForm):
+    alumno_nombre=forms.CharField(label="Alumno")
+    curso_nombre=forms.CharField(label="Curso")
+    class Meta:
+        model=Nota
+        fields=["alumno_nombre","curso_nombre","nota"]
