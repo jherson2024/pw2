@@ -1,5 +1,6 @@
 from .models import Alumno, Curso, Nota
 from .forms import AlumnoForm, CursoForm, NotaForm
+from django.shortcuts import redirect
 
 # Create your views here.
 def pagina(request):
