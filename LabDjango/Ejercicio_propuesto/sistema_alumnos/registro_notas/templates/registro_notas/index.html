@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h1>Agregar Datos</h1>
+    <div class="form-container">
+        <div id="div1">
+            <form method="post">
+                {% csrf_token %}
+                <h2>Nuevo Alumno</h2>
+                {{ alumno_form.as_p }}
+                <button type="submit" name="alumno_submit">Guardar Alumno</button>
+            </form>
+        </div>
+        
+        <div id="div2">
+            <form method="post">
+                {% csrf_token %}
+                <h2>Nuevo Curso</h2>
+                {{ curso_form.as_p }}
+                <button type="submit" name="curso_submit">Guardar Curso</button>
+            </form>
+        </div>
+        
+        <div id="div3">
+            <form method="post">
+                {% csrf_token %}
+                <h2>Agregar Nota</h2>
+                {{ nota_form.as_p }}
+                <button type="submit" name="nota_submit">Guardar Nota</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
