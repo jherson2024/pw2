@@ -3,7 +3,7 @@ from .forms import AlumnoForm, CursoForm, NotaForm
 from django.shortcuts import redirect, render
 
 # Create your views here.
-def pagina(request):
+def pagina_principal(request):
     alumno_form=AlumnoForm()
     curso_form=CursoForm()
     nota_form=NotaForm()
