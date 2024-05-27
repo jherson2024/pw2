@@ -7,8 +7,8 @@
 <body>
     <h1>Agregar Datos</h1>
     <div class="form-container">
-        <div id="div1">
-            <form method="post" class="form_">
+        <div id="div1" class="form_">
+            <form method="post">
                 {% csrf_token %}
                 <h2>Nuevo Alumno</h2>
                 {{ alumno_form.as_p }}
@@ -16,8 +16,8 @@
             </form>
         </div>
         
-        <div id="div2">
-            <form method="post" class="form_">
+        <div id="div2" class="form_">
+            <form method="post">
                 {% csrf_token %}
                 <h2>Nuevo Curso</h2>
                 {{ curso_form.as_p }}
@@ -25,8 +25,8 @@
             </form>
         </div>
         
-        <div id="div3">
-            <form method="post" class="form_">
+        <div id="div3" class="form_">
+            <form method="post">
                 {% csrf_token %}
                 <h2>Agregar Nota</h2>
                 {{ nota_form.as_p }}
