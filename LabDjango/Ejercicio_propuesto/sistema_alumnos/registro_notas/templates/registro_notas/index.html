@@ -36,13 +36,24 @@
     </div>
     <h3>Lista de Notas</h3>
     <div id="lista">
-        {% for nota in notas %}
-        <div>
-            <p><strong>Alumno:</strong>{{nota.alumno.nombre}}</p>
-            <p><strong>Curso:</strong>{{nota.curso.nombre}}</p>
-            <p><strong>Nota:</strong>{{nota.nota}}</p>
-        </div>
-        {% endfor %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Alumno</th>
+                    <th>Curso</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for nota in notas %}
+                <tr>
+                    <td>{{nota.alumno.nombre}}</td>
+                    <td>{{nota.curso.nombre}}</td>
+                    <td>{{nota.nota}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
