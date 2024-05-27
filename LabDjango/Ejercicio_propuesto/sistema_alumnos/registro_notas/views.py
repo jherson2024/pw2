@@ -36,8 +36,10 @@ def pagina_principal(request):
                 else:
                     return redirect("pagina_principal")
     
+    notas=Nota.objects.all()
     return render(request, "registro_notas/index.html", {
         "alumno_form":alumno_form,
         "curso_form":curso_form,
         "nota_form":nota_form,
+        "notas":notas,
     })
