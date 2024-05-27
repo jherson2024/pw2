@@ -34,5 +34,15 @@
             </form>
         </div>
     </div>
+    <h3>Lista de Notas</h3>
+    <div id="lista">
+        {% for nota in notas %}
+        <div>
+            <p><strong>Alumno:</strong>{{nota.alumno.nombre}}</p>
+            <p><strong>Curso:</strong>{{nota.curso.nombre}}</p>
+            <p><strong>Nota:</strong>{{nota.nota}}</p>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 </html>
