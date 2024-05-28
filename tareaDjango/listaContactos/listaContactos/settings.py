@@ -107,7 +107,7 @@ LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'America/Lima'
 
-USE_I18N = True
+USE_I18N = True 
 
 USE_TZ = True
 
