@@ -23,15 +23,15 @@ def home(request):
 
     dest2=Destination()
     dest2.name="Hiderabab"
-    dest2.desc="The city that never sleeps"
+    dest2.desc="Not recomendable"
     dest2.img="destination_1.jpg"
-    dest2.price=700
+    dest2.price=400
 
     dest3=Destination()
     dest3.name="Bengaluru"
-    dest3.desc="The city that never sleeps"
+    dest3.desc="Beautiful"
     dest3.img="destination_1.jpg"
-    dest3.price=700    
+    dest3.price=800    
 
     dests=[dest1,dest2,dest3]
 
