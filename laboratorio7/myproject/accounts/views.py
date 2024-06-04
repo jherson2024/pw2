@@ -12,10 +12,14 @@ def register(request):
         password2=request.POST["password2"]
         email=request.POST["email"]
         if password1==password2:
-         if User.objects.filter(username=username).exist():
+         if User.objects.filter(username=username).exists():
             messages.info(request,"Username taken")
-         elif User.objects.filter(email=email).exist():
+            messages_list = list(messages.get_messages(request))
+            return render(request, "register.html", {"messages": messages_list})
+         elif User.objects.filter(email=email).exists():
             messages.info(request,"email taken")
+            messages_list = list(messages.get_messages(request))
+            return render(request, "register.html", {"messages": messages_list})
          else:
            user=User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
            user.save();
@@ -23,5 +27,7 @@ def register(request):
            return redirect("/")
         else: 
            messages.info(request,"password not matchine..")
+           messages_list = list(messages.get_messages(request))
+           return render(request, "register.html", {"messages": messages_list})
     else:
-        messages.info(request,request,"register.html")
+        return render(request,"register.html")
