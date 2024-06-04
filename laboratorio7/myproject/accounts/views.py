@@ -13,10 +13,13 @@ def register(request):
         if password1==password2:
          if User.objects.filter(username=username).exist():
             print("Username taken")
-         user=User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
-         user.save();
-         print("user created")
-         return redirect("/")
+         elif User.objects.filter(email=email).exist():
+            print("email taken")
+         else:
+           user=User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
+           user.save();
+           print("user created")
+           return redirect("/")
         else: 
            print("password not matchine..")
     else:
