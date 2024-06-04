@@ -49,3 +49,7 @@ def login(request):
          return render(request, "login.html", {"messages": messages_list})
    else:
         return render(request,"login.html")
+   
+def login(request):
+   auth.logout(request)
+   return redirect("/")
