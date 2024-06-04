@@ -24,7 +24,8 @@ def register(request):
            user=User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
            user.save();
            messages.info(request,"user created")
-           return redirect("login")
+           messages_list = list(messages.get_messages(request))
+           return redirect("login", {"messages": messages_list})
         else: 
            messages.info(request,"password not matchine..")
            messages_list = list(messages.get_messages(request))
@@ -39,7 +40,9 @@ def login(request):
       user=auth.authenticate(username=username,password=password)
       if user is not None:
          auth.login(request,user)
-         return redirect("/")
+         messages.info(request,"user login")
+         messages_list = list(messages.get_messages(request))
+         return render(request,"login.html", {"messages": messages_list})
       else:
          messages.info(request,"invalid credentials")
          messages_list = list(messages.get_messages(request))
