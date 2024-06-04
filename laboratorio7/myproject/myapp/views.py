@@ -36,3 +36,9 @@ def home(request):
     dests=[dest1,dest2,dest3]
 
     return render(request, 'index.html', {'dests': dests})  
+
+def home2(request):
+
+    dests=Destination.objects.all()
+
+    return render(request, 'index.html', {'dests': dests})  
