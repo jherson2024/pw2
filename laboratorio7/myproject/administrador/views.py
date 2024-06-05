@@ -16,7 +16,11 @@ def administrar(request):
                 print("3")
                 crear_form.save()
                 print("4")
-                return redirect("administrar")
+                return render(request,"administrar.html",{
+                    "crear_form":crear_form,
+                    "eliminar_form":eliminar_form,
+                    "lista":Destination.objects.all(),
+                })
             else:
                 print("Formulario no válido")
                 print(crear_form.errors)
@@ -25,7 +29,11 @@ def administrar(request):
             if eliminar_form.is_valid():
                 name_destino=eliminar_form.cleaned_data['name']
                 Destination.objects.filter(name=name_destino).delete()
-                return redirect("administrar")            
+                return render(request,"administrar.html",{
+                    "crear_form":crear_form,
+                    "eliminar_form":eliminar_form,
+                    "lista":Destination.objects.all(),
+                })           
     
     lista=Destination.objects.all()
     return render(request, "administrar.html", {
