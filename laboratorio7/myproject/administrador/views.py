@@ -9,9 +9,13 @@ def administrar(request):
 
     if request.method=="POST":
         if "crear_submit" in request.POST:
+            print("1")
             crear_form=CrearForm(request.POST)
+            print("2")
             if crear_form.is_valid():
+                print("3")
                 crear_form.save()
+                print("4")
                 return redirect("administrar")
         elif "eliminar_submit" in request.POST:
             eliminar_form=EliminarForm(request.POST)
