@@ -1,0 +1,19 @@
+.form-container {
+    display: flex; 
+}
+.form_{
+    flex: 1; 
+    margin-right: 10px;
+}
+.form_:last-child {
+    margin-right: 0;
+}
+#div1{
+    background-color: #f0f0f0;
+}
+#div2{
+    background-color: #a48282;
+}
+#div3{
+    background-color: #5dc19f;
+}
