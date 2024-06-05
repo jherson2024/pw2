@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styleAdministrador.css' %}">
+</head>
+<body>
+    <h1>Agregar Datos</h1>
+    <div class="form-container">
+
+        <div id="div1" class="form_">
+            <form method="post">
+                {% csrf_token %}
+                <h2>Nuevo destino</h2>
+                {{ crear_form.as_p }}
+                <button type="submit" name="crear_submit">Crear destino</button>
+            </form>
+        </div>
+        
+        <div id="div2" class="form_">
+            <form method="post">
+                {% csrf_token %}
+                <h2>Quitar destino</h2>
+                {{ eliminar_form.as_p }}
+                <button type="submit" name="eliminar_submit">Eliminar destino</button>
+            </form>
+        </div>
+
+    </div>
+    <h3>Lista de destinos</h3>
+    <div id="lista">
+        <table>
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>img</th>
+                    <th>desc</th>
+                    <th>price</th>
+                    <th>offer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for destino in lista %}
+                <tr>
+                    <td>{{destino.name}}</td>
+                    <td>{{destino.img}}</td>
+                    <td>{{destinon.desc}}</td>
+                    <td>{{destinon.price}}</td>
+                    <td>{{destinon.offer}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
