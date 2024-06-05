@@ -43,10 +43,16 @@
                 {% for destino in lista %}
                 <tr>
                     <td>{{destino.name}}</td>
-                    <td>{{destino.img}}</td>
+                    <td>
+                        <img src="{{ destino.img.url }}" alt="">
+                    </td>
                     <td>{{destinon.desc}}</td>
                     <td>{{destinon.price}}</td>
-                    <td>{{destinon.offer}}</td>
+                    <td>
+                        {% if destino.offer %}
+                        <button class="check"></button>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
