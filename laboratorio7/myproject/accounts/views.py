@@ -42,7 +42,7 @@ def login(request):
          auth.login(request,user)
          messages.info(request,"user login")
          messages_list = list(messages.get_messages(request))
-         return render(request,"login.html", {"messages": messages_list})
+         return render(request,"index.html", {"messages": messages_list})
       else:
          messages.info(request,"invalid credentials")
          messages_list = list(messages.get_messages(request))
@@ -50,6 +50,6 @@ def login(request):
    else:
         return render(request,"login.html")
    
-def login(request):
+def logout(request):
    auth.logout(request)
-   return redirect("/")
+   return render(request,"index.html")
