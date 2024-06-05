@@ -9,7 +9,7 @@
     <div class="form-container">
 
         <div id="div1" class="form_">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <h2>Nuevo destino</h2>
                 {{ crear_form.as_p }}
