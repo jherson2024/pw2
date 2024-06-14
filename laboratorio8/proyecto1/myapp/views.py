@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from xhtml2pdf import pisa
 from django.template.loader import get_template
+from django.core.mail import send_mail
 
 def pagina_principal(request):
     return render(request, "index.html")
@@ -19,3 +20,11 @@ def render_pdf_view(request):
     if pisa_status.err:
         return HttpResponse("Hubo errores al generar el PDF: %s" % html)
     return response
+
+def enviar_email(request):
+    subject="asunto"
+    message="cuerpo"
+    email_from="tu-email@gmail.com"
+    recipient_list=["destinatario@example.com"]
+    send_mail(subject,message,email_from,recipient_list)
+    return HttpResponse("Correo enviado")
