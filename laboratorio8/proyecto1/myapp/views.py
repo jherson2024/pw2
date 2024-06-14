@@ -3,9 +3,20 @@ from django.http import HttpResponse
 from xhtml2pdf import pisa
 from django.template.loader import get_template
 from django.core.mail import send_mail
+from .models import Language,Framework,Movie,Character
 
 def pagina_principal(request):
-    return render(request, "index.html")
+    languages=Language.objects.all()
+    frameworks=Framework.objects.all()
+    movies=Movie.objects.all()
+    Characters=Character.objects.all()
+    context={
+        "languages":languages,
+        "frameworks":frameworks,
+        "movies":movies,
+        "characters":Characters
+    }
+    return render(request,"index.html",context)
 
 def render_pdf_view(request):
     context = {
