@@ -8,8 +8,37 @@
     <link rel="stylesheet" href="{% static 'styles/style_index.css' %}">
 </head>
 <body>
-    <p>hola mundo</p>
     <button onclick="render_to_pdf()">renderizar a pdf</button>
+    <h1>Languages</h1>
+    <ul>
+        {% for language in languages %}
+            <li>{{ language.name }}</li>
+        {% endfor %}
+    </ul>
+    <h1>Frameworks</h1>
+    <ul>
+        {% for framework in frameworks %}
+            <li>{{ framework.name }} ({{ framework.language.name }})</li>
+        {% endfor %}
+    </ul>
+    <h1>Movies</h1>
+    <ul>
+        {% for movie in movies %}
+            <li>{{ movie.name }}</li>
+        {% endfor %}
+    </ul>
+    <h1>Characters</h1>
+    <ul>
+        {% for character in characters %}
+            <li>{{ character.name }}
+                <ul>
+                    {% for movie in character.movies.all %}
+                        <li>{{ movie.name }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 <script>
     function render_to_pdf(){
