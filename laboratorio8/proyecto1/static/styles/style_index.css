@@ -1,3 +1,9 @@
 body {
     font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+button{
+    background-color: bisque;
 }
