@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Persona
 # Create your views here.
 def myHomeView(request,*args,**kwargs):
     myContext={
@@ -8,3 +8,11 @@ def myHomeView(request,*args,**kwargs):
         "myList":[33,44,55],
     }
     return render(request,"home.html",myContext)
+
+def personaTestView(request):
+    obj=Persona.objects.get(id=1)
+    context={
+        "nombre":obj.nombres,
+        "edad":obj.edad,
+    }
+    return render(request,"test.html",context)
