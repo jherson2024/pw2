@@ -1,16 +1,17 @@
-import { TestBed } from '@angular/core/testing';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { QuestionComponent } from './question/question.component';
+import { ResultsComponent } from './results/results.component';
 
-import { QuestionService } from './question.service';
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'question/:id', component: QuestionComponent },
+  { path: 'results', component: ResultsComponent }
+];
 
-describe('QuestionService', () => {
-  let service: QuestionService;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(QuestionService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
