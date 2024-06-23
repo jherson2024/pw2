@@ -1,9 +1,13 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig} from '@angular/core';
 import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
+import { AhorcadoGameComponent } from './ahorcado-game/ahorcado-game.component';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
+  providers: [
+    provideRouter([
+      { path: 'ahorcado_game', component: AhorcadoGameComponent },
+      { path: '', redirectTo: '/ahorcado_game', pathMatch: 'full' },
+    ]),
+    // otros proveedores
+  ],
 };
