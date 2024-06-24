@@ -1,0 +1,20 @@
+<!-- templates/personas/persona_detail.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Persona</title>
+</head>
+<body>
+    <h1>Detalle de {{ object.nombres }} {{ object.apellidos }}</h1>
+    <p><strong>ID:</strong> {{ object.id }}</p>
+    <p><strong>Nombres:</strong> {{ object.nombres }}</p>
+    <p><strong>Apellidos:</strong> {{ object.apellidos }}</p>
+    <p><strong>Edad:</strong> {{ object.edad }}</p>
+    <p><strong>Donador:</strong> {{ object.donador|yesno:"Sí,No" }}</p>
+    <a href="{% url 'personas:persona-list' %}">Volver a la lista</a>
+    <a href="{% url 'personas:persona-update' object.id %}">Editar</a>
+    <a href="{% url 'personas:persona-delete' object.id %}">Eliminar</a>
+</body>
+</html>
