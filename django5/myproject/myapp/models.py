@@ -9,10 +9,4 @@ class Persona(models.Model):
     def get_abosolute_url(self):
         return reverse("personas:persona-detail",kwards={"pk":self.id})
 
-class PersonaListView(ListView):
-    model=Persona
-    queryset=Persona.objects.filter(edad__lte="40") 
 
-class PersonaDetailView(DetailView):
-    model=Persona
-    # queryset=Persona.objects.filter(edad__lte="40") 
