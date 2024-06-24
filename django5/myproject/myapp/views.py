@@ -3,6 +3,8 @@ from django.views.generic import {
     ListView,
     DetailView,
     CreateView,
+    Update,
+    Delete,
     }
 
 # Create your views here.
@@ -30,3 +32,7 @@ class PersonaUpdateView(UpdateView):
         "edad",
         "donador",
     ]
+
+class PersonaDeleteView(DeleteView):
+    model=Persona
+    succes_url=reverse_lazy('personas:persona-list')
