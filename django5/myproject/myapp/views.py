@@ -23,6 +23,7 @@ class PersonaCreateView(CreateView):
         "edad",
         "donador",
     ]
+    template_name = 'personas/persona_form.html'
 
 # Actualización de una Persona
 class PersonaUpdateView(UpdateView):
