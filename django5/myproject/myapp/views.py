@@ -8,6 +8,7 @@ from .models import Persona
 class PersonaListView(ListView):
     model = Persona
     queryset = Persona.objects.filter(edad__lte=40)
+    template_name = 'personas/persona_list.html'
 
 # Detalle de una Persona
 class PersonaDetailView(DetailView):

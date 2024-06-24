@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect  # Importa redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('myapp/', include('myapp.urls')),
-    path('', include('myapp.urls')),
+    path('personas/', include('myapp.urls', namespace='personas')),
+     path('', lambda request: redirect('personas:persona-list')), 
 ]
