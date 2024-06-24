@@ -8,3 +8,7 @@ class Persona(models.Model):
     donador=models.BooleanField()
     def get_abosolute_url(self):
         return reverse("personas:persona-detail",kwards={"pk":self.id})
+
+class PersonaListView(ListView):
+    model=Persona
+    queryset=Persona.objects.filter(edad__lte="40")
