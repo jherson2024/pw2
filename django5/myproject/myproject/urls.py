@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('personas/', include('myapp.urls', namespace='personas')),
      path('', lambda request: redirect('personas:persona-list')), 
+    # path('', lambda request: redirect('{% url 'personas:persona-list' %}')), 
 ]

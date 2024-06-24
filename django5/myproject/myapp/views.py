@@ -4,6 +4,9 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse
 from .models import Persona
 
+# def pagina_principal(request):
+#     return render(request,"index.html")
+
 # Lista de Personas
 class PersonaListView(ListView):
     model = Persona

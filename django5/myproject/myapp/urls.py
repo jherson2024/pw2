@@ -4,6 +4,7 @@ from .views import PersonaListView, PersonaDetailView, PersonaCreateView, Person
 app_name = 'personas'
 
 urlpatterns = [
+    # path('', views.pagina_principal, name='pagina_principal'),
     path('', PersonaListView.as_view(), name='persona-list'),
     path('persona/<int:pk>/', PersonaDetailView.as_view(), name='persona-detail'),
     path('persona/new/', PersonaCreateView.as_view(), name='persona-create'),
