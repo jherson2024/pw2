@@ -22,3 +22,11 @@ class PersonaCreateView(CreateView):
         "edad",
         "donador",
     ]
+class PersonaUpdateView(UpdateView):
+    model=Persona
+    fields=[
+        "nombres",
+        "apellidos",
+        "edad",
+        "donador",
+    ]
