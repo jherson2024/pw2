@@ -13,6 +13,7 @@ class PersonaListView(ListView):
 # Detalle de una Persona
 class PersonaDetailView(DetailView):
     model = Persona
+    template_name = 'personas/persona_detail.html'
 
 # Creación de una nueva Persona
 class PersonaCreateView(CreateView):
@@ -39,6 +40,7 @@ class PersonaUpdateView(UpdateView):
 class PersonaDeleteView(DeleteView):
     model = Persona
     success_url = reverse_lazy('personas:persona-list')
+    template_name = 'personas/persona_delete.html'
 
 # Vista personalizada con respuesta HTTP
 class PersonaQueryView(View):
