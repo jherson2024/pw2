@@ -11,4 +11,4 @@ class Persona(models.Model):
 
 class PersonaListView(ListView):
     model=Persona
-    queryset=Persona.objects.filter(edad__lte="40")
+    queryset=Persona.objects.filter(edad__lte="40") 
